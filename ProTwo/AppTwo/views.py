@@ -10,3 +10,5 @@ def home(request):
         dest = 'Index'
     return render(request, 'AppTwo/index.html', context={'name': 'Django!', 'dest': dest})
     
+def _help(request):
+    return render(request, 'help.html')
