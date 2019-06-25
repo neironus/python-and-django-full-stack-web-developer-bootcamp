@@ -1,5 +1,12 @@
 from django.shortcuts import render
+import os
 
 # Create your views here.
 def home(request):
-    return render(request, 'AppTwo/index.html', context={'name': 'Django!'})
+    print(os.path.dirname(__file__))
+    if request.path == '/home/':
+        dest = 'Home'
+    else:
+        dest = 'Index'
+    return render(request, 'AppTwo/index.html', context={'name': 'Django!', 'dest': dest})
+    
