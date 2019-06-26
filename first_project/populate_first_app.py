@@ -8,12 +8,13 @@ import django
 django.setup()
 
 import random
-from first_app.models import Topic, WebPage, AccessRecord
+from first_app.models import Topic, WebPage, AccessRecord, User
 
 from faker import Faker
 
-fakegen = Faker()
+fakegen = Faker('en_US')
 topics = ['Search','Social','Marketplace','News','Games']
+
 
 def add_topic():
     t = Topic.objects.get_or_create(top_name=random.choice(topics))[0]
@@ -27,6 +28,11 @@ def populate(N=5):
     '''
 
     for entry in range(N):
+        
+        # Get random user
+        first_name = fakegen.first_name()
+        last_name = fakegen.last_name()
+        email = fakegen.safe_email()
 
         # Get Topic for Entry
         top = add_topic()
@@ -35,6 +41,8 @@ def populate(N=5):
         fake_url = fakegen.url()
         fake_date = fakegen.date()
         fake_name = fakegen.company()
+
+        create_new_user = User.objects.get_or_create(first_name=first_name, last_name=last_name, email=email)
 
         # # Create new Webpage Entry
         webpg = WebPage.objects.get_or_create(category=top,url=fake_url,name=fake_name)[0]
