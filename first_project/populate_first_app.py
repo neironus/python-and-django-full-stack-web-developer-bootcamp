@@ -8,7 +8,8 @@ import django
 django.setup()
 
 import random
-from first_app.models import Topic,Webpage,AccessRecord
+from first_app.models import Topic, WebPage, AccessRecord
+
 from faker import Faker
 
 fakegen = Faker()
@@ -18,7 +19,6 @@ def add_topic():
     t = Topic.objects.get_or_create(top_name=random.choice(topics))[0]
     t.save()
     return t
-
 
 
 def populate(N=5):
@@ -36,11 +36,11 @@ def populate(N=5):
         fake_date = fakegen.date()
         fake_name = fakegen.company()
 
-        # Create new Webpage Entry
-        webpg = Webpage.objects.get_or_create(topic=top,url=fake_url,name=fake_name)[0]
+        # # Create new Webpage Entry
+        webpg = WebPage.objects.get_or_create(category=top,url=fake_url,name=fake_name)[0]
 
-        # Create Fake Access Record for that page
-        # Could add more of these if you wanted...
+        # # Create Fake Access Record for that page
+        # # Could add more of these if you wanted...
         accRec = AccessRecord.objects.get_or_create(name=webpg,date=fake_date)[0]
 
 
