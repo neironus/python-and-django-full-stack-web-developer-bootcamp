@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Topic, WebPage, AccessRecord, User
+from .models import Topic, WebPage, AccessRecord, UserModel
 
 
 class WebPageAdmin(admin.ModelAdmin):
@@ -16,5 +16,5 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(WebPage, WebPageAdmin)
-admin.site.register(User, UserAdmin)
+admin.site.register(UserModel, UserAdmin)
 admin.site.register(AccessRecord)
