@@ -44,8 +44,11 @@ def populate(N=5):
 
         create_new_user = User.objects.get_or_create(first_name=first_name, last_name=last_name, email=email)
 
-        # # Create new Webpage Entry
-        webpg = WebPage.objects.get_or_create(category=top,url=fake_url,name=fake_name)[0]
+
+
+
+reate(category=top,url=fake_url,name=fake_name)[0]
+
 
         # # Create Fake Access Record for that page
         # # Could add more of these if you wanted...
