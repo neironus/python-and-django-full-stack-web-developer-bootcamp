@@ -1,7 +1,15 @@
 {% extends "basic_app/base.html" %}
     {% block content %}
         <h1>Hello</h1>
-        {{ user_form.as_p }}
-        {{ user_profile.as_p }}
+        <form action="{% url 'basic_app:sign-up' %}" method="POST">
+            {% csrf_token %}
+
+            {{ user_form.as_p }}
+
+            {{ user_profile.as_p }}
+        
+            <input type="submit" value="Создать пользователя">
+        </form>
+        
     {% endblock  %}
     
