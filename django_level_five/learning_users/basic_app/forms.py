@@ -12,5 +12,5 @@ class UserProfileForm(forms.ModelForm):
     # password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = UserProfileInfo
-        fields = '__all__'
+        fields = ('portfolio_site','profile_pic')
 
