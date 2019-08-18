@@ -7,12 +7,12 @@ from .forms import UserForm, UserProfileForm
 
 # Create your views here.
 def home(request):
-    # profile_user(request)
+    print(request.user)
     context = {'user': request.user}
     return render(request, 'basic_app/index.html', context)
 
 def login_user(request):
-    print(request.GET.get('key'))
+    # print(request.GET.get('key'))
     if request.method == 'POST':
         username = request.POST.get('login')
         password = request.POST.get('password')
