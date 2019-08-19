@@ -1,7 +1,7 @@
 {% extends "basic_app/base.html" %}
     {% block content %}
         <h1>Hello</h1>
-        <form action="{% url 'basic_app:sign-up' %}" method="POST">
+        <form action="{% url 'basic_app:sign-up' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
             {{ user_form.as_p }}
