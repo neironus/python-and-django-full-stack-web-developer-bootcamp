@@ -37,6 +37,13 @@
                     <a class="nav-link" href="{% url 'basic_app:profile-user' request.user %}">UserProfile</a>
                 </li>
             {% endif %}
+
+
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ profile.get_absolute_url }}">UserProfile2</a>
+                </li>
+            {% endif %}
             </ul>
         </div>
     </nav>

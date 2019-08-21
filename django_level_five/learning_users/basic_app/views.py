@@ -5,11 +5,13 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import UserForm, UserProfileForm
+from .models import UserProfileInfo
 
 # Create your views here.
 def home(request):
-    print(request.user)
-    context = {'user': request.user}
+    # print(request.user)
+    profile = UserProfileInfo.objects.get(user=request.user)
+    context = {'user': request.user, 'profile':profile }
     return render(request, 'basic_app/index.html', context)
 
 def login_user(request):
