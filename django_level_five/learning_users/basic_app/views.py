@@ -11,7 +11,8 @@ from .models import UserProfileInfo
 def home(request):
     # print(request.user)
     # UserProfileInfo.objects.filter
-    profile = UserProfileInfo.objects.filter(user__username=request.user)
+    profile = UserProfileInfo.objects.get(user__username=request.user)
+    # print(profile)
     context = {'user': request.user, 'profile':profile }
     return render(request, 'basic_app/index.html', context)
 
@@ -65,9 +66,9 @@ def sign_up(request):
                 }
             )
 
-def profile_user(request, user_name):
+def profile_user(request, user_name='admin'):
     # user_name=request.user
-    # print('*****************')
+    print('*****************')
     # print(user_name)
     user = get_object_or_404(User, username=user_name)
     # print('*****************')
