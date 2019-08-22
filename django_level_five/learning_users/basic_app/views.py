@@ -10,7 +10,8 @@ from .models import UserProfileInfo
 # Create your views here.
 def home(request):
     # print(request.user)
-    profile = UserProfileInfo.objects.get(user=request.user)
+    # UserProfileInfo.objects.filter
+    profile = UserProfileInfo.objects.filter(user__username=request.user)
     context = {'user': request.user, 'profile':profile }
     return render(request, 'basic_app/index.html', context)
 
@@ -45,7 +46,7 @@ def sign_up(request):
         user_form = UserForm(data=request.POST)
         user_profile = UserProfileForm(data=request.POST)
         if user_form.is_valid() and user_profile.is_valid():
-            print(user_profile.cleaned_data['profile_pic'])
+            # print(user_profile.cleaned_data['profile_pic'])
             user = user_form.save()
             user.set_password(user.password)
             user.save()

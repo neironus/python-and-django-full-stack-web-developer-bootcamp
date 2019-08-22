@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
+# from .views import profile_user
 # Create your models here.
 
 class UserProfileInfo(models.Model):
@@ -10,7 +11,13 @@ class UserProfileInfo(models.Model):
     # slug = models.SlugField(unique=True)
 
     def get_absolute_url(self):
-        return reverse("model_detail", kwargs={"slug": self.user})
+        '''  
+        Если использовать namespace тогда нужноиспользвать basic_app:profile-user
+        вместо profile-user
+        return reverse('basic_app:profile-user', kwargs={"user_name": self.user})
+        reverse('имя урла из urls.py', kwargs={"переменная user_name из profile/<str:user_name>": self.user})
+        '''
+        return reverse('basic_app:profile-user', kwargs={"user_name": self.user})
     
 
 

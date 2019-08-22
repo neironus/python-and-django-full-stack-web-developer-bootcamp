@@ -10,3 +10,4 @@ urlpatterns = [
     path('logout', logout_user, name='logout-user'),
     path('profile/<str:user_name>', profile_user, name='profile-user')
 ]
+
