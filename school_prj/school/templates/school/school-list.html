@@ -1,0 +1,7 @@
+{% extends "school/base.html" %}
+
+{% block content %}
+    {% for school in schools %}
+        <p>{{ school }}</p>
+    {% endfor %}
+{% endblock content %}
