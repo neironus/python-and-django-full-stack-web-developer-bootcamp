@@ -18,8 +18,8 @@ class StudentModel(models.Model):
     firt_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     age = models.IntegerField()
-    city = models.ForeignKey(CityModel, on_delete=models.CASCADE)
-    school = models.ForeignKey(SchoolModel, on_delete=models.CASCADE)
+    city = models.ForeignKey(CityModel, related_name='students', on_delete=models.CASCADE)
+    school = models.ForeignKey(SchoolModel, related_name='students', on_delete=models.CASCADE)
 
     @property
     def full_name(self):

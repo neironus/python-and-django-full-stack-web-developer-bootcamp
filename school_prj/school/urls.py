@@ -7,5 +7,6 @@ app_name = 'school_app'
 urlpatterns = [
     path('', views.index, name='home'),
     path('schools', views.school_list, name='school-list'),
-    path('<str:test>', views.url_test, name='url-test'),
+    path('<int:pk>', views.school_description, name='school-description'),
+    path('<int:pk>/update', views.school_edit, name='school-edit'),
 ]

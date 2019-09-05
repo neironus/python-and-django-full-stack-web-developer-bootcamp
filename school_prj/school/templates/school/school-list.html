@@ -1,7 +1,15 @@
 {% extends "school/base.html" %}
 
 {% block content %}
-    {% for school in schools %}
-        <p>{{ school }}</p>
-    {% endfor %}
+    <div class='container'>
+        <ul class="list-group">
+            {% for school in schools %}
+                <li class="list-group-item">
+                    <a class='' href="{% url 'school_app:school-description' school.pk %}">{{ school }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+       
+    </div>
+    
 {% endblock content %}
