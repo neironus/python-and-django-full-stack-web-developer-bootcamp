@@ -4,9 +4,15 @@
 
     <div class='container'>
         <form method="POST">
+        {% comment %} <ul class="list-group"> {% endcomment %}
             {% csrf_token %}
-            {{ form }}
-            <input type="submit" name="Изменить">
+            {{ form.as_p }}
+
+
+        {% comment %} </ul> {% endcomment %}
+            
+            
+            <input type="submit" value="Изменить школу">
         </form>
         
     </div>

@@ -9,7 +9,7 @@ class CityModel(models.Model):
 class SchoolModel(models.Model):
     name = models.CharField(max_length=100)
     city = models.ForeignKey(CityModel, related_name='schools', on_delete=models.CASCADE )
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100)
 
     def __str__(self):
         return self.name
